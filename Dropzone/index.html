@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Dropzone</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <div class="brand"><svg class="logo" viewBox="170 840 1590 250"><circle cx="277" cy="965" r="86" fill="currentColor" stroke="none"/><circle cx="639" cy="965" r="66"/><circle cx="1001" cy="965" r="66"/><circle cx="1363" cy="965" r="66"/><path d="M360 965H556M722 965H918M1084 965H1280M1446 965H1700"/><path d="M1627 878L1725 965L1627 1052" stroke-linecap="round" stroke-linejoin="miter"/></svg><span>Dropzone</span><span class="vbadge" id="vbadge"></span><button id="gear" class="icon" title="Settings &amp; shortcuts"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg></button></div>
+  <div class="top">
+    <select id="folders" title="Saved folders"></select>
+    <button id="choose" class="icon" title="Add folder(s)"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button id="addfile" class="icon" title="Add individual file(s)"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg></button>
+    <button id="remove" class="icon" title="Remove this folder from the list"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button id="refresh" class="icon" title="Refresh"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.5-5.8M20 4v5h-5"/></svg></button>
+  </div>
+  <div class="toolbar">
+    <button id="up" class="icon" title="Up one level"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>
+      <input id="search" placeholder="Search files…" title="Typos and capitals are fine">
+    </div>
+    <select id="scope" title="Where to search"><option value="here">This folder</option><option value="sub">Subfolders</option><option value="all">Everywhere</option></select>
+  </div>
+  <div class="filterrow">
+  <div id="chips">
+    <button data-t="" class="on">All</button><button data-t="video">Video</button><button data-t="audio">Audio</button><button data-t="image">Image</button>
+  </div>
+  <div id="views">
+      <button data-v="grid" title="Grid"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></button>
+      <button data-v="large" title="Large thumbnails"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/></svg></button>
+      <button data-v="list" title="List with details"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div id="path"></div>
+  <div id="preview"></div>
+  <div id="grid"></div>
+  <div id="status">Click = preview · Drag or Enter = insert · ⚙ for shortcuts</div>
+  <div id="settings">
+    <div class="sh"><b>Settings</b><button id="sclose" class="icon" title="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="row"><span>Version</span><span id="ver"></span></div>
+    <label class="row"><input type="checkbox" id="autoref"> Auto-refresh folders when files change</label>
+    <div class="sec">Smooth previews (ffmpeg)</div>
+    <div id="ffstate" class="note"></div>
+    <div class="row"><button id="ffloc" class="mini">Locate ffmpeg…</button><button id="ffclear" class="mini">Clear preview cache</button></div>
+    <div class="sec">Keyboard shortcuts</div>
+    <table class="keys">
+      <tr><td>← → ↑ ↓</td><td>Move selection</td></tr>
+      <tr><td>Shift + arrows</td><td>Extend selection</td></tr>
+      <tr><td>Enter</td><td>Insert at playhead / open folder</td></tr>
+      <tr><td>Space</td><td>Play / pause preview</td></tr>
+      <tr><td>Ctrl/⌘ + A</td><td>Select all</td></tr>
+      <tr><td>Ctrl/⌘ + F or /</td><td>Search</td></tr>
+      <tr><td>Backspace</td><td>Up one folder</td></tr>
+      <tr><td>Home / End</td><td>First / last file</td></tr>
+      <tr><td>Delete</td><td>Remove from My Files</td></tr>
+      <tr><td>Esc</td><td>Clear selection</td></tr>
+    </table>
+  </div>
+  <script src="js/ffmpeg.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/main.js"></script>
+</body></html>
